@@ -1,6 +1,5 @@
 from sense_hat import SenseHat
 from threading import Timer
-import cpu_temp
 
 sense = SenseHat();
 sense.low_light = True
