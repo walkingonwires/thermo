@@ -98,6 +98,6 @@ def tempLoop():
 
 for gamma in gammas:
 	if gamma != gamma1:
-		Timer(5.0, set_gamma(gamma))
+		Timer(5.0, set_gamma(gamma)).start()
 
 #tempLoop()
