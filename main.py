@@ -46,9 +46,16 @@ gamma3 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 gamma2 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2]
 gamma1 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-set_gamma(gamma5)
-
-gammas = [gamma10, gamma9, gamma8, gamma7, gamma6, gamma5, gamma4, gamma3, gamma2, gamma1]
+set_gamma(gamma1)
+Timer(5.0, set_gamma(gamma2)).start()
+Timer(10.0, set_gamma(gamma3)).start()
+Timer(15.0, set_gamma(gamma4)).start()
+Timer(20.0, set_gamma(gamma5)).start()
+Timer(25.0, set_gamma(gamma6)).start()
+Timer(30.0, set_gamma(gamma7)).start()
+Timer(35.0, set_gamma(gamma8)).start()
+Timer(40.0, set_gamma(gamma9)).start()
+Timer(45.0, set_gamma(gamma10)).start()
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
@@ -96,8 +103,5 @@ def tempLoop():
 	print f_temp
 	Timer(15.0, tempLoop).start()
 
-for gamma in gammas:
-	if gamma != gamma1:
-		Timer(5.0, set_gamma(gamma)).start()
 
 #tempLoop()
