@@ -31,9 +31,9 @@ class CPUTemp:
 
 
 sense = SenseHat();
-print sense.gamma
+print sense.get_pixels()
 sense.low_light = True
-print sense.gamma
+print sense.get_pixels()
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
