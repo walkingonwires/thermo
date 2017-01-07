@@ -30,8 +30,11 @@ class CPUTemp:
         self.tempfile.close()
 
 
+def set_gamma(g):
+	sense.gamma = g
+
 sense = SenseHat();
-sense.low_light = True
+set_gamma(gamma1)
 
 gamma10 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10]
 gamma9 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 9, 9]
@@ -44,7 +47,7 @@ gamma3 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 gamma2 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2]
 gamma1 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-sense.gamma = gamma1
+gammas = [gamma10, gamma9, gamma8, gamma7, gamma6, gamma5, gamma4, gamma3, gamma2, gamma1]
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
@@ -91,5 +94,9 @@ def tempLoop():
 	show_number(int(f_temp), 255, 0 , 190)
 	print f_temp
 	Timer(15.0, tempLoop).start()
+
+for gamma in gammas:
+	if gammas[gamma] != gamma1:
+		Timer(5.0, set_gamma(gammas[gamma]))
 
 #tempLoop()
