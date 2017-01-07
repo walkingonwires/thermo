@@ -8,9 +8,9 @@ sense.rotation = 180
 loop = 1
 
 def tempLoop():
-	t = ap.get_temperature()
-	p = ap.get_temperature_from_pressure()
-	h = ap.get_temperature_from_humidity()
+	t = sense.get_temperature()
+	p = sense.get_temperature_from_pressure()
+	h = sense.get_temperature_from_humidity()
 	with CPUTemp() as cpu_temp:
 		c = cpu_temp.get_temperature()
 	temp_calc = ((t+p+h)/3) - (c/5)
