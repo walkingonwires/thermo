@@ -34,9 +34,10 @@ sense = SenseHat();
 sense.low_light = True
 print sense.gamma
 for val in sense.gamma:
+	print sense.gamma[val]
 	if sense.gamma[val] > 1:
 		sense.gamma[val] += -1
-print sense.gamma
+
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
