@@ -42,6 +42,9 @@ sense.rotation = 180
 
 loop = 1
 
+def toFarenheit(c):
+	return  9.0/5.0 * c + 32
+
 def tempLoop():
 	t = sense.get_temperature()
 	p = sense.get_temperature_from_pressure()
@@ -49,7 +52,7 @@ def tempLoop():
 	with CPUTemp() as cpu_temp:
 		c = cpu_temp.get_temperature()
 	temp_calc = ((t+p+h)/3) - (c/5)
-	sense.show_message(str(round((temp_calc + 32), 2)), scroll_speed=0.2, text_colour=[139,0,0], back_colour=[0,0,0])
+	sense.show_message(str(round((toFarenheit(temp_calc)), 1)), scroll_speed=0.2, text_colour=[139,0,0], back_colour=[0,0,0])
 	Timer(15.0, tempLoop).start()
 
 tempLoop()
