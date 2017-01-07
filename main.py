@@ -97,7 +97,7 @@ def tempLoop():
 	Timer(15.0, tempLoop).start()
 
 for gamma in gammas:
-	if gammas[gamma] != gamma1:
-		Timer(5.0, set_gamma(gammas[gamma]))
+	if gamma != gamma1:
+		Timer(5.0, set_gamma(gamma))
 
 #tempLoop()
