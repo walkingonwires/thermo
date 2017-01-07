@@ -33,9 +33,9 @@ class CPUTemp:
 sense = SenseHat();
 sense.low_light = True
 print sense.gamma
-for val in sense.gamme:
-	if sense.gamme[val] > 1:
-		sense.gamme[val] += -1
+for val in sense.gamma:
+	if sense.gamma[val] > 1:
+		sense.gamma[val] += -1
 print sense.gamma
 
 OFFSET_LEFT = 1
