@@ -31,8 +31,9 @@ class CPUTemp:
 
 
 sense = SenseHat();
+print sense.gamma
 sense.low_light = True
-loop = 1
+print sense.gamma
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
@@ -80,4 +81,4 @@ def tempLoop():
 	print f_temp
 	Timer(15.0, tempLoop).start()
 
-tempLoop()
+#tempLoop()
