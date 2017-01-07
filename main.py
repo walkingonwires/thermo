@@ -33,6 +33,9 @@ class CPUTemp:
 def set_gamma(g):
 	sense.gamma = g
 
+def up_gamma():
+	if sense.gammma
+
 sense = SenseHat();
 
 gamma10 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10]
@@ -46,16 +49,8 @@ gamma3 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 gamma2 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2]
 gamma1 = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
-set_gamma(gamma1)
-Timer(5.0, set_gamma(gamma2)).start()
-Timer(10.0, set_gamma(gamma3)).start()
-Timer(15.0, set_gamma(gamma4)).start()
-Timer(20.0, set_gamma(gamma5)).start()
-Timer(25.0, set_gamma(gamma6)).start()
-Timer(30.0, set_gamma(gamma7)).start()
-Timer(35.0, set_gamma(gamma8)).start()
-Timer(40.0, set_gamma(gamma9)).start()
-Timer(45.0, set_gamma(gamma10)).start()
+
+set_gamma(gamma10)
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
