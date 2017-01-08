@@ -1,4 +1,4 @@
-from sense_hat import SenseHat
+from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
 sense = SenseHat();
 
@@ -40,11 +40,11 @@ def gamma_off():
 	sense.gamma = no_gamma
 
 def pushed_up(event):
-    if sense.low_light == False:
+    if sense.low_light == False and event.action != ACTION_PRESSED:
     	sense.low_light = True
 
 def pushed_down(event):
-    if sense.low_light == True:
+    if sense.low_light == True and event.action != ACTION_PRESSED:
     	gamma_off()
 
 # Number display matrix
