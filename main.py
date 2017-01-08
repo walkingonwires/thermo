@@ -30,12 +30,24 @@ class CPUTemp:
     def close(self):
         self.tempfile.close()
 
+
+# Display illumination toggle
 sense.low_light = True
 no_gamma = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 def gamma_off():
+	sense.low_light = False
 	sense.gamma = no_gamma
 
+def pushed_up(event):
+    if sense.low_light == False:
+    	sense.low_light = True
+
+def pushed_down(event):
+    if sense.low_light == True:
+    	gamma_off()
+
+# Number display matrix
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
 
@@ -81,6 +93,5 @@ def tempLoop():
 	show_number(int(f_temp), 255, 0 , 190)
 	print f_temp
 	Timer(15.0, tempLoop).start()
-
 
 tempLoop()
