@@ -84,4 +84,4 @@ def tempLoop():
 	Timer(15.0, tempLoop).start()
 
 
-#tempLoop()
+tempLoop()
