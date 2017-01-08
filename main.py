@@ -47,6 +47,9 @@ def pushed_down(event):
     if sense.low_light == True and event.action != ACTION_PRESSED:
     	gamma_off()
 
+sense.stick.direction_up = pushed_up
+sense.stick.direction_down = pushed_down
+
 # Number display matrix
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
