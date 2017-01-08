@@ -1,5 +1,6 @@
 from sense_hat import SenseHat
 from threading import Timer
+sense = SenseHat();
 
 class CPUTemp:
     def __init__(self, tempfilename = "/sys/class/thermal/thermal_zone0/temp"):
@@ -29,13 +30,11 @@ class CPUTemp:
     def close(self):
         self.tempfile.close()
 
-
-def set_gamma(g):
-	sense.gamma = g
-
-sense = SenseHat();
+sense.low_light = True
 no_gamma = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-set_gamma(no_gamma)
+
+def gamma_off():
+	sense.gamma = no_gamma
 
 OFFSET_LEFT = 1
 OFFSET_TOP = 2
