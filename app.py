@@ -1,7 +1,7 @@
 from flask import Flask, render_template
+from monitor import monitor
 
-execfile("/temp_monitor/temp_monitor.py")
-monitor()
+monitor
 
 print __name__
 
