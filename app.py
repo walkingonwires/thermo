@@ -119,7 +119,7 @@ def tempLoop():
     show_number(int(f_temp), 255, 0 , 190)
     global current_temp
     print 'old temp: ' + str(current_temp)
-    global current_temp = f_temp
+    current_temp = f_temp
     print 'new temp: ' + str(current_temp)
     Timer(15.0, tempLoop).start()
 
