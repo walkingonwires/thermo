@@ -3,7 +3,7 @@ from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
 sense = SenseHat();
 
-current_temp
+current_temp = null
 
 ###
 # Web Server
