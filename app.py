@@ -117,7 +117,10 @@ def tempLoop():
     sense.clear()
     f_temp = toFarenheit(temp_calc)
     show_number(int(f_temp), 255, 0 , 190)
+    global current_temp
+    print 'old temp: ' + str(current_temp)
     global current_temp = f_temp
+    print 'new temp: ' + str(current_temp)
     Timer(15.0, tempLoop).start()
 
 tempLoop()
