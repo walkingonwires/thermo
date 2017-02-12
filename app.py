@@ -17,7 +17,7 @@ def index():
 
 @app.route('/current-temp')
 def get_temp():
-    return current_temp;
+    return {'temp': current_temp};
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0');
