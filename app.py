@@ -100,6 +100,7 @@ def get_temp():
     f_temp = toFarenheit(temp_calc)
     sense.clear()
     show_number(int(f_temp), 255, 0 , 190)
+    global current_temp
     current_temp = f_temp
     Timer(10.0, get_temp).start()
 
