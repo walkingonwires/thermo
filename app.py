@@ -88,6 +88,8 @@ def show_number(val, r, g, b):
 def toFarenheit(c):
     return  int(9.0/5.0 * c + 32)
 
+current_temp = 0
+
 def get_temp():
     t = sense.get_temperature()
     p = sense.get_temperature_from_pressure()
@@ -98,11 +100,10 @@ def get_temp():
     f_temp = toFarenheit(temp_calc)
     sense.clear()
     show_number(int(f_temp), 255, 0 , 190)
-    return f_temp
+    current_temp = f_temp
+    Timer(10.0, get_temp).start()
 
-
-temp_timer = Timer(60.0, get_temp)
-temp_timer.start()
+get_temp();
 
 ###
 # Web Server
@@ -116,9 +117,8 @@ def index():
 
 @app.route('/current-temp')
 def send_temp():
-    temp_timer.cancel()
-    temp_timer.start()
-    return get_temp()
+    temp_data = { 'currentTemp': current_temp}
+    return str(temp_data)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0');
