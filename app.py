@@ -3,25 +3,6 @@ from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
 sense = SenseHat();
 
-current_temp = 0
-
-###
-# Web Server
-###
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html');
-
-@app.route('/current-temp')
-def get_temp():
-    return str(current_temp);
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0');
-
 ###
 # Temperature Monitoring
 ###
@@ -107,20 +88,37 @@ def show_number(val, r, g, b):
 def toFarenheit(c):
     return  int(9.0/5.0 * c + 32)
 
-def tempLoop():
+def get_temp():
     t = sense.get_temperature()
     p = sense.get_temperature_from_pressure()
     h = sense.get_temperature_from_humidity()
     with CPUTemp() as cpu_temp:
         c = cpu_temp.get_temperature()
     temp_calc = ((t+p+h)/3) - (c/5)
-    sense.clear()
     f_temp = toFarenheit(temp_calc)
+    sense.clear()
     show_number(int(f_temp), 255, 0 , 190)
-    global current_temp
-    print 'old temp: ' + str(current_temp)
-    current_temp = f_temp
-    print 'new temp: ' + str(current_temp)
-    Timer(15.0, tempLoop).start()
+    return f_temp
 
-tempLoop()
+
+temp_timer = Timer(60.0, get_temp)
+temp_timer.start()
+
+###
+# Web Server
+###
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html');
+
+@app.route('/current-temp')
+def send_temp():
+    temp_timer.cancel()
+    temp_timer.start()
+    return get_temp()
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0');
