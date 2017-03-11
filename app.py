@@ -132,8 +132,10 @@ def index():
 
 @app.route('/current-temp')
 def send_temp():
-    temp_data = {str(currentTemp): pi_temp}
-    return str(temp_data)
+    data = {'currentTemp': pi_temp}
+    js = json.dumps(data)
+    resp = Response(js, status=200, mimetype='application/json')
+    return resp
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0');
