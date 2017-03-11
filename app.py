@@ -88,7 +88,10 @@ def show_number(val, r, g, b):
 def toFarenheit(c):
     return  int(9.0/5.0 * c + 32)
 
-current_temp = 0
+pi_temp = 0
+pi_target = 0
+thermostat_target = 0
+thermostat_temp = 0
 
 def get_temp():
     t = sense.get_temperature()
@@ -100,8 +103,8 @@ def get_temp():
     f_temp = toFarenheit(temp_calc)
     sense.clear()
     show_number(int(f_temp), 255, 0 , 190)
-    global current_temp
-    current_temp = f_temp
+    global pi_temp
+    pi_temp = f_temp
     Timer(10.0, get_temp).start()
 
 get_temp();
@@ -118,7 +121,7 @@ def index():
 
 @app.route('/current-temp')
 def send_temp():
-    temp_data = { 'currentTemp': current_temp}
+    temp_data = { 'currentTemp': pi_temp}
     return str(temp_data)
 
 if __name__ == '__main__':
