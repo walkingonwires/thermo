@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify, Response
 from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
 sense = SenseHat();
@@ -133,8 +133,7 @@ def index():
 @app.route('/current-temp')
 def send_temp():
     data = {'currentTemp': pi_temp}
-    js = json.dumps(data)
-    resp = Response(js, status=200, mimetype='application/json')
+    resp = Response(jsonify(data), status=200, mimetype='application/json')
     return resp
 
 if __name__ == '__main__':
