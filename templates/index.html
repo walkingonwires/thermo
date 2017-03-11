@@ -5,6 +5,7 @@
 	<title>Temp Monitoring</title>
 
 	<link rel="stylesheet" href="/static/css/vendor/bootstrap.min.css">
+	<script src="https://use.fontawesome.com/4c491ca50c.js"></script>
 	<link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
@@ -12,7 +13,7 @@
 	<div class="content">
 
 		<div class="panel panel-default">
-			<div class="panel-heading">Settings</div>
+			<div class="panel-heading"><h1>Settings</h1></div>
 			<div class="panel-body">
 				<div class="form-group">
 					<label class="col-lg-2 control-label">Mode</label>
@@ -36,26 +37,26 @@
 
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Downstairs: Current Temp / Target Temp </h3>
+				<div class="panel-title"><h1>Downstairs: Current Temp / Target Temp</h1></div>
 			</div>
 			<div class="panel-body">
 				<h2><span id="downCurrentTemp"></span> / <span id="downTargetTemp"></span></h2>
 				<div class="btn-group-vertical">
-					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
-					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-chevron-down"></span></a>
+					<a href="#" class="btn btn-default"><span class="fa fa-chevron-up" aria-hidden="true"></span></a>
+					<a href="#" class="btn btn-default"><span class="fa fa-chevron-down" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="panel panel-warning">
 			<div class="panel-heading">
-				<h3 class="panel-title">Upstairs: Current Temp / Target Temp </h3>
+				<div class="panel-title"><h1>Upstairs: Current Temp / Target Temp</h1></div>
 			</div>
 			<div class="panel-body">
 				<h2><span id="upCurrentTemp"></span> / <span id="upTargetTemp"></span></h2>
-				<div class="btn-group-vertical">
-					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
-					<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-chevron-down"></span></a>
+				<div class="btn-group-vertical controls">
+					<a href="#" class="btn btn-default"><span class="fa fa-chevron-up" aria-hidden="true"></span></a>
+					<a href="#" class="btn btn-default"><span class="fa fa-chevron-down" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
