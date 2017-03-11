@@ -26,7 +26,9 @@ $(document).ready(function () {
     var pi = {
         getCurrentTemp: function () {
             return $.get('/current-temp').then(function (res) {
-                return res.currentTemp;
+                console.log(typeof res);
+                window.myResponse = res;
+                return res
             }).catch(function (err) {
                 console.warn("didn't get temp \n" + err);
                 return err;
