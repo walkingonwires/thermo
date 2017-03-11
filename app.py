@@ -132,7 +132,7 @@ def index():
 
 @app.route('/current-temp')
 def send_temp():
-    temp_data = { 'currentTemp': pi_temp}
+    temp_data = {currentTemp: pi_temp}
     return str(temp_data)
 
 if __name__ == '__main__':
