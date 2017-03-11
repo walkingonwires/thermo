@@ -1,43 +1,56 @@
 $(document).ready(function () {
-    var $curTempView = $('#currentTemp'),
-        $targTempView = $('#targetTemp'),
-        localTarget = null,
-        officialTarget = null,
-        currentPiTemp = null;
+    var $piCurrentTempView = $('#piCurrentTemp'),
+        $piTargetTempView = $('#piTargetTemp'),
+        $thermoCurrentTempView = $('#thermoCurrentTemp'),
+        $thermoTargetTempView = $('#thermoTargetTemp');
             
     
+    var thermo = {
+        getCurrentTemp: function () {
+        },
+        getTargetTemp: function () {
 
-    function getCurrentTemp () {
-        $.get('/current-temp').then(function (res) {
-            res = JSON.parse(res);
-            $curTempView.text(res.currentTemp);
-        }).catch(function (err) {
-            console.warn("didn't get temp \n" + err);
-        });
-    }
-    
-    function getTargetTemp() {
-        
+        },
+        setTargetTemp: function () {
+
+        },
+
+        setMode: function () {
+
+        },
+        setFan: function () {
+
+        }
+    };
+
+    var pi = {
+        getCurrentTemp: function () {
+            return $.get('/current-temp').then(function (res) {
+                console.log(res);
+                return res
+            }).catch(function (err) {
+                console.warn("didn't get temp \n" + err);
+                return err;
+            });
+        },
+        getTargetTemp: function () {},
+        setTargetTemp: function () {
+
+        }
+    };
+
+    function updateViewVals (element, val) {
+        element.text(addDegrees(val));
     }
 
-    function updateTargetTemp() {
-        
-    }
-    
-    function increaseTargetTemp() {
-        
-    }
-    
-    function decreaseTargetTemp() {
-        
-    }
-    
-    function toggleMode () {
-        
+    function addDegrees(temp) {
+        return '' + temp + String.fromCharCode(176);
     }
 
-    getCurrentTemp()
-    
-    
 
+
+    pi.getCurrentTemp().then(function (temp) {
+        updateViewVals($piCurrentTempView, temp);
+    })
+    
 });
