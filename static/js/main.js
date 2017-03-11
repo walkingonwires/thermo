@@ -26,8 +26,8 @@ $(document).ready(function () {
     var pi = {
         getCurrentTemp: function () {
             return $.get('/current-temp').then(function (res) {
-                console.log(res);
-                return res
+                res = JSON.parse(res);
+                return res.currentTemp;
             }).catch(function (err) {
                 console.warn("didn't get temp \n" + err);
                 return err;
@@ -52,5 +52,5 @@ $(document).ready(function () {
     pi.getCurrentTemp().then(function (temp) {
         updateViewVals($piCurrentTempView, temp);
     })
-    
+
 });
