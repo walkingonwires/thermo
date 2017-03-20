@@ -123,14 +123,15 @@ class PiTStat:
 	temp = 112323
 	def get_temp(self):
 		print self.temp
-	def set_temp():
+	def set_temp(self):
 		return
 	def get_target():
 		return
 	def set_target():
 		return
 
-PiTStat.get_temp();
+pi = PiTStat()
+pi.get_temp()
 
 def pi_temp_loop():
     t = sense.get_temperature()
