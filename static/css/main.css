@@ -8,6 +8,11 @@
     margin: 0 auto;
     min-width: 600px;
     min-height: 100vh;
+    height: 100%;
+}
+
+.panel.large {
+    min-height: 25%;
 }
 
 .panel-body {
