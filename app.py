@@ -37,9 +37,6 @@ class CPUTemp:
     def close(self):
         self.tempfile.close()
 
-    def to_farenheit(c):
-        return int(9.0 / 5.0 * c + 32)
-
 
 # Display illumination toggle
 sense.low_light = True
@@ -101,6 +98,9 @@ def show_number(val, r, g, b):
         show_digit(tens, OFFSET_LEFT, OFFSET_TOP, r, g, b)
     show_digit(units, OFFSET_LEFT + 4, OFFSET_TOP, r, g, b)
 
+
+def to_farenheit(c):
+    return int(9.0 / 5.0 * c + 32)
 
 class MainTStat:
     target = 0
