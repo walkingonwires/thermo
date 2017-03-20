@@ -121,9 +121,8 @@ class MainTStat:
 class PiTStat:
 	target = 0
 	temp = 112323
-	@staticmethod
-	def get_temp():
-		print temp
+	def get_temp(self):
+		print self.temp
 	def set_temp():
 		return
 	def get_target():
