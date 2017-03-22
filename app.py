@@ -110,7 +110,7 @@ class MainTStat:
 
     def get_temp(self):
         r = requests.get('http://thermo/tstat/temp')
-        print r.text
+        self.temp = r.text.temp
         return self.temp
 
     def get_target(self):
