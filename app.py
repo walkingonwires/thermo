@@ -109,7 +109,7 @@ class MainTStat:
     temp = 0
 
     def get_temp(self):
-        r = request.get('http://thermo/tstat/temp')
+        r = requests.get('http://thermo/tstat/temp')
         print r.text
         return temp
 
@@ -122,7 +122,7 @@ class MainTStat:
 
 class PiTStat:
     target = 0
-    temp = 112323
+    temp = 0
 
     def get_temp(self):
         return self.temp
@@ -187,7 +187,10 @@ def index():
 
 @app.route('/current-temp')
 def send_temp():
-    data = {'currentTemp': pi_temp}
+    data = {
+    	'piTemp': pi.get_temp(),
+    	'tStatTemp': tstat.get_temp()
+    	}
     return jsonify(data)
 
 if __name__ == '__main__':
