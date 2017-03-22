@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, Response
 from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
+import requests
 sense = SenseHat()
 
 ###
