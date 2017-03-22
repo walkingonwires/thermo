@@ -102,36 +102,46 @@ def show_number(val, r, g, b):
 def to_farenheit(c):
     return int(9.0 / 5.0 * c + 32)
 
+
 class MainTStat:
     target = 0
     temp = 0
 
-    def get_temp():
+    def get_temp(self):
         r = request.get('http://thermo/tstat/temp')
-        # set response temp to this.temp
+        print r.text
         return temp
 
-    def get_target():
-    	return
+    def get_target(self):
+        return
 
-    def set_target():
-    	return
+    def set_target(self, temp):
+        return
 
 
 class PiTStat:
-	target = 0
-	temp = 112323
-	def get_temp(self):
-		print self.temp
-	def set_temp(self):
-		return
-	def get_target():
-		return
-	def set_target():
-		return
+    target = 0
+    temp = 112323
 
+    def get_temp(self):
+        return self.temp
+
+    def set_temp(self, temp):
+        if (temp):
+            self.temp = temp
+        return
+
+    def get_target(self):
+        return self.target
+
+    def set_target(self, temp):
+        if (temp):
+        	self.target = temp
+    	return
+
+tstat = MainTStat()
 pi = PiTStat()
-pi.get_temp()
+
 
 def pi_temp_loop():
     t = sense.get_temperature()
@@ -143,7 +153,7 @@ def pi_temp_loop():
     f_temp = to_farenheit(temp_calc)
     sense.clear()
     show_number(int(f_temp), 255, 0, 190)
-    PiTStat.temp = f_temp
+    pi.set_temp(f_temp)
     Timer(60.0, pi_temp_loop).start()
 
 pi_temp_loop()
