@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, Response
 from sense_hat import SenseHat, ACTION_PRESSED
 from threading import Timer
-import requests
+import requests, json
 sense = SenseHat()
 
 ###
@@ -110,7 +110,8 @@ class MainTStat:
 
     def get_temp(self):
         r = requests.get('http://thermo/tstat/temp')
-        self.temp = r.text.temp
+        data = json.loads(r.text);
+        self.temp = data['temp']
         return self.temp
 
     def get_target(self):
